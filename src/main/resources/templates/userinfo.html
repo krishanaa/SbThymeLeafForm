@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Spring Boot Thymeleaf</title>
+        <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+<!--        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    </head>
+    <body>
+        <h1>User Details</h1>
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Gender</th>
+                <th>Married?</th>
+                <th>Selected Profile</th>
+                    
+            </tr>
+            <tr th:each="user:${allUsers}">
+                <td th:text="${user.userId}">Id</td>
+                <td th:text="${user.userName}">Title</td>
+                <td th:text="${user.gender}">Gender</td>
+                <td th:text="${user.married}">Married</td>
+                <td th:text="${user.profile}">Profile</td>
+            </tr>
+        </table>
+        <a href="#" th:href="@{/user/createuser}">Add User</a>
+    </body>
+</html>
